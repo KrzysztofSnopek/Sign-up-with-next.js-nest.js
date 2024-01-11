@@ -53,7 +53,7 @@ export default function LoginPage() {
             <div className="self-stretch h-14 gap-[3px]">
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="email"
                 label="Email address"
                 variant="outlined"
                 color="primary"
@@ -71,10 +71,11 @@ export default function LoginPage() {
             <div className="self-stretch h-14 gap-[3px]">
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="password"
                 label="Password"
                 variant="outlined"
                 color="primary"
+                type="password"
               />
             </div>
 
