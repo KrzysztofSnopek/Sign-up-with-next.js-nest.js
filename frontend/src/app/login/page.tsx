@@ -1,32 +1,22 @@
 "use client";
 
 import { TextField } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1C2E24",
-    },
-  },
-});
-const accent = "#1C2E24";
 
 export default function LoginPage() {
   return (
     <div className="w-full h-screen flex bg-neutral-50">
       {/* Welcome board - left content - make reusable for sign in form */}
-      <div className="w-1/3 h-screen px-3 bg-neutral-800 justify-end items-center flex">
+      <div className="w-1/3 h-screen px-3 bg-primary justify-end items-center flex">
         <div className="px-6 pt-12">
-          <div className="text-neutral-50 text-5xl font-normal font-['Roboto Slab'] leading-[56.02px]">
+          <h1 className="slab text-neutral-50 text-5xl leading-[56.02px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
+          </h1>
           <div className="w-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
             <div className="w-4 h-8 relative bg-white bg-opacity-0">
               <div className="w-4 h-8 left-0 top-0 absolute"></div>
             </div>
           </div>
-          <div className="text-neutral-50 text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+          <div className="text-neutral-50 text-base font-normal leading-normal tracking-tight">
             — John Doe
           </div>
         </div>
@@ -40,13 +30,13 @@ export default function LoginPage() {
               {/* Welcome msg */}
               <div className="">
                 <div className="">
-                  <div className="text-center text-black/90 text-2xl font-normal font-['Roboto Slab'] leading-loose">
+                  <div className="slab text-center text-black/90 text-2xl font-normal leading-loose">
                     Welcome
                   </div>
                 </div>
               </div>
               <div className="">
-                <div className="text-center text-black/60 text-base font-normal font-['Roboto'] leading-7 tracking-tight">
+                <div className="text-center text-black/60 text-base font-normal leading-7 tracking-tight">
                   Example Description
                 </div>
               </div>
@@ -101,9 +91,9 @@ export default function LoginPage() {
             </div>
 
             {/* Sign in button */}
-            <div className="self-stretch h-[50px] bg-neutral-800 rounded shadow flex-col justify-center items-center flex">
+            <div className="self-stretch h-[50px] bg-primary rounded shadow flex-col justify-center items-center flex">
               <div className="px-[22px] py-3 justify-center items-center gap-2 inline-flex">
-                <div className="text-white text-[15px] font-medium font-['Roboto'] uppercase leading-relaxed tracking-wide">
+                <div className="text-white text-[15px] font-medium uppercase leading-relaxed tracking-wide">
                   Sign in
                 </div>
               </div>
@@ -119,12 +109,12 @@ export default function LoginPage() {
             {/* Sign up footer */}
             <div className="self-stretch h-5 justify-center flex">
               <div>
-                <span className="text-black text-opacity-90 text-sm font-normal font-['Roboto'] leading-tight tracking-tight">
+                <span className="text-black text-opacity-90 text-sm font-normal leading-tight tracking-tight">
                   Don't have an account?
                 </span>
 
                 {/* button for sign up */}
-                <span className="text-black text-opacity-90 text-sm font-bold font-['Roboto'] leading-tight tracking-tight">
+                <span className="text-black text-opacity-90 text-sm font-bold leading-tight tracking-tight">
                   Sign up for free
                 </span>
               </div>

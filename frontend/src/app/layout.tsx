@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["100", "300", "500"],
+  display: "swap",
+});
+
+const roboto_slab = Roboto_Slab({
+  subsets: ["latin"],
+  variable: "--font-robotoSlab",
+  weight: ["100", "300", "400"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Recruitment task",
@@ -16,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${roboto.variable} ${roboto_slab.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
