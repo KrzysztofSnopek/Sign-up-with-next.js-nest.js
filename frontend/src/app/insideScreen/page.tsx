@@ -1,4 +1,6 @@
 "use client";
+import Loading from "@/components/Loading";
+import UnauthenticatedScreen from "@/components/UnauthenticatedScreen";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
@@ -10,22 +12,11 @@ export default function InsideScreen() {
   console.log(session?.user?.name);
 
   if (status === "loading") {
-    return (
-      <div>
-        <div className="bg-primary text-white text-center">Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (status === "unauthenticated") {
-    return (
-      <div>
-        <div className="bg-primary text-white text-center">
-          Please sign in first
-        </div>
-        <Link href={"/"}>Go to sign in page</Link>
-      </div>
-    );
+    return <UnauthenticatedScreen />;
   }
 
   if (status === "authenticated") {
