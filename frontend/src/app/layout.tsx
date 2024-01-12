@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
+import Provider from "@/components/Provider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -28,9 +29,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${roboto_slab.variable}`}>
-        {children}
-      </body>
+      <Provider>
+        <body className={`${roboto.variable} ${roboto_slab.variable}`}>
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }

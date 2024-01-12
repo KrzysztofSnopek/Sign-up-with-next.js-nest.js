@@ -1,8 +1,23 @@
 "use client";
 
 import { TextField } from "@mui/material";
+import { signIn } from "next-auth/react";
+import { useRef } from "react";
 
 export default function LoginPage() {
+  const email = useRef("");
+  const password = useRef("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await signIn("credentials", {
+      email: email.current,
+      password: password.current,
+      redirect: true,
+      callbackUrl: "/insideScreen",
+    });
+  };
+
   return (
     <div className="w-full h-screen flex bg-neutral-50">
       {/* Welcome board - left content - make reusable for sign in form */}
@@ -49,56 +64,63 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Email input */}
-            <div className="self-stretch h-14 gap-[3px]">
-              <TextField
-                fullWidth
-                id="email"
-                label="Email address"
-                variant="outlined"
-                color="primary"
-              />
-            </div>
-
-            {/* Space between inputs - padding */}
-            <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-              <div className="w-8 h-4 relative bg-white bg-opacity-0">
-                <div className="w-8 h-4 left-0 top-0 absolute"></div>
+            <form onSubmit={handleSubmit}>
+              {/* Email input */}
+              <div className="self-stretch h-14 gap-[3px]">
+                <TextField
+                  fullWidth
+                  id="email"
+                  label="Email address"
+                  variant="outlined"
+                  color="primary"
+                  onChange={(e) => (email.current = e.target.value)}
+                />
               </div>
-            </div>
 
-            {/* Password input */}
-            <div className="self-stretch h-14 gap-[3px]">
-              <TextField
-                fullWidth
-                id="password"
-                label="Password"
-                variant="outlined"
-                color="primary"
-                type="password"
-              />
-            </div>
-
-            {/* 2x space under password input - padding */}
-            <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-              <div className="w-8 h-4 relative bg-white bg-opacity-0">
-                <div className="w-8 h-4 left-0 top-0 absolute"></div>
-              </div>
-            </div>
-            <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-              <div className="w-8 h-4 relative bg-white bg-opacity-0">
-                <div className="w-8 h-4 left-0 top-0 absolute"></div>
-              </div>
-            </div>
-
-            {/* Sign in button */}
-            <div className="self-stretch h-[50px] bg-primary rounded shadow flex-col justify-center items-center flex">
-              <div className="px-[22px] py-3 justify-center items-center gap-2 inline-flex">
-                <div className="text-white text-[15px] font-medium uppercase leading-relaxed tracking-wide">
-                  Sign in
+              {/* Space between inputs - padding */}
+              <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
+                <div className="w-8 h-4 relative bg-white bg-opacity-0">
+                  <div className="w-8 h-4 left-0 top-0 absolute"></div>
                 </div>
               </div>
-            </div>
+
+              {/* Password input */}
+              <div className="self-stretch h-14 gap-[3px]">
+                <TextField
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  variant="outlined"
+                  color="primary"
+                  type="password"
+                  onChange={(e) => (password.current = e.target.value)}
+                />
+              </div>
+
+              {/* 2x space under password input - padding */}
+              <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
+                <div className="w-8 h-4 relative bg-white bg-opacity-0">
+                  <div className="w-8 h-4 left-0 top-0 absolute"></div>
+                </div>
+              </div>
+              <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
+                <div className="w-8 h-4 relative bg-white bg-opacity-0">
+                  <div className="w-8 h-4 left-0 top-0 absolute"></div>
+                </div>
+              </div>
+
+              {/* Sign in button */}
+              {/* <div className="self-stretch h-[50px] bg-primary rounded shadow flex-col justify-center items-center flex">
+                <div className="px-[22px] py-3 justify-center items-center gap-2 inline-flex"> */}
+              <button
+                type="submit"
+                className="self-stretch h-[50px] bg-primary rounded shadow py-3 text-white text-[15px] font-medium uppercase leading-relaxed tracking-wide"
+              >
+                Sign in
+              </button>
+              {/* </div> */}
+              {/* </div> */}
+            </form>
 
             {/* Space under sign in button - padding */}
             <div className="h-4 bg-white bg-opacity-0 flex-col justify-start items-start flex">
