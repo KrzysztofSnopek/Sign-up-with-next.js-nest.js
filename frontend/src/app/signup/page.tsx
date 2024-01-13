@@ -3,7 +3,7 @@
 import { TextField } from "@mui/material";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
-import { Backend_URL } from "../helpers/Constants";
+import { BACKEND_URL } from "../helpers/Constants";
 
 export default function SignupPage() {
   const [statusMessage, setStatusMessage] = useState<string>("");
@@ -13,7 +13,7 @@ export default function SignupPage() {
   const handleUserRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await fetch(Backend_URL + "/auth/signup", {
+    const res = await fetch(BACKEND_URL + "/auth/signup", {
       method: "POST",
       body: JSON.stringify({
         email: email.current,
@@ -27,7 +27,6 @@ export default function SignupPage() {
       setStatusMessage("User already exists");
       return;
     }
-    const response = res.json();
     setStatusMessage("Your account has been successfully created!");
   };
 

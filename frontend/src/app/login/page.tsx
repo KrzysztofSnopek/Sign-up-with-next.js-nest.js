@@ -17,11 +17,6 @@ export default function LoginPage() {
       redirect: true,
       callbackUrl: "/insideScreen",
     });
-
-    if (!res?.ok) {
-      alert("Invalid email or password");
-      return;
-    }
   };
 
   return (
@@ -37,11 +32,9 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Right content - form part */}
       <div className="w-2/3 h-screen flex justify-center items-center">
         <div className="w-3/5 p-6">
           <div className="mb-12">
-            {/* Welcome msg */}
             <div className="slab text-center text-black/90 text-2xl font-normal leading-8">
               Welcome
             </div>
@@ -51,7 +44,6 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {/* Email input */}
             <div className="h-14 mb-4">
               <TextField
                 fullWidth
@@ -63,7 +55,6 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Password input */}
             <div className="h-14 mb-4">
               <TextField
                 fullWidth
@@ -84,14 +75,12 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Sign up footer */}
           <div className="self-stretch h-5 justify-center flex">
             <div>
               <span className="text-black text-opacity-90 text-sm font-normal leading-tight tracking-[0.17px]">
                 Don't have an account?
               </span>
 
-              {/* button for sign up */}
               <Link
                 href={"/signup"}
                 className="px-1 text-black text-opacity-90 text-sm font-bold leading-tight tracking-[0.17px]"
