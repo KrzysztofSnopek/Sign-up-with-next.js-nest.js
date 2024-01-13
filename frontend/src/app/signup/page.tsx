@@ -32,7 +32,7 @@ export default function SignupPage() {
 
   return (
     <div className="h-screen w-full bg-primary flex justify-center items-center">
-      <div className="w-1/3 bg-slate-300 rounded-lg p-4 flex flex-col items-center">
+      <div className="w-1/3 bg-white rounded-lg p-4 flex flex-col items-center">
         <h2 className="text-2xl slab pb-2">
           Please fill in to create an account
         </h2>
@@ -60,7 +60,7 @@ export default function SignupPage() {
 
           <button
             type="submit"
-            className="m-2 p-2 outline-1 outline rounded w-full hover:bg-slate-400"
+            className="m-2 p-2 outline-1 outline rounded w-full hover:bg-slate-200"
           >
             Create an account
           </button>

@@ -4,19 +4,26 @@ import { TextField } from "@mui/material";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const email = useRef("");
   const password = useRef("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await signIn("credentials", {
       email: email.current,
       password: password.current,
-      redirect: true,
-      callbackUrl: "/insideScreen",
+      redirect: false,
     });
+
+    if (res?.error === "CredentialsSignin" && res.status === 401) {
+      alert("Invalid email or password");
+      return;
+    }
+    router.push("/insideScreen");
   };
 
   return (
