@@ -17,6 +17,11 @@ export default function LoginPage() {
       redirect: true,
       callbackUrl: "/insideScreen",
     });
+
+    if (!res?.ok) {
+      alert("Invalid email or password");
+      return;
+    }
   };
 
   return (
@@ -78,6 +83,7 @@ export default function LoginPage() {
               Sign in
             </button>
           </form>
+
           {/* Sign up footer */}
           <div className="self-stretch h-5 justify-center flex">
             <div>
