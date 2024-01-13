@@ -7,9 +7,6 @@ import React from "react";
 
 export default function InsideScreen() {
   const { data: session, status } = useSession();
-  console.log(status);
-  console.log(session);
-  console.log(session?.user?.email);
 
   if (status === "loading") {
     return <Loading />;

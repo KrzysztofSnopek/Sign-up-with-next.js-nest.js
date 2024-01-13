@@ -2,6 +2,7 @@
 
 import { TextField } from "@mui/material";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRef } from "react";
 
 export default function LoginPage() {
@@ -85,9 +86,12 @@ export default function LoginPage() {
               </span>
 
               {/* button for sign up */}
-              <span className="text-black text-opacity-90 text-sm font-bold leading-tight tracking-[0.17px]">
+              <Link
+                href={"/signup"}
+                className="px-1 text-black text-opacity-90 text-sm font-bold leading-tight tracking-[0.17px]"
+              >
                 Sign up for free
-              </span>
+              </Link>
             </div>
           </div>
         </div>
