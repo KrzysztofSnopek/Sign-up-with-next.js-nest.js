@@ -19,16 +19,7 @@ export class AuthService {
 
     return {
       user,
-      backendTokens: {
-        accessToken: await this.jwtService.signAsync(payload, {
-          expiresIn: '2h',
-          secret: process.env.jwtSecretKey,
-        }),
-        refreshToken: await this.jwtService.signAsync(payload, {
-          expiresIn: '7d',
-          secret: process.env.jwtRefreshTokenKey,
-        }),
-      },
+      jwtTokens: this.generateTokens(payload),
     };
   }
 
@@ -46,6 +37,10 @@ export class AuthService {
     const payload = {
       email: user.email,
     };
+    return this.generateTokens(payload);
+  }
+
+  private async generateTokens(payload: { email: string }) {
     return {
       accessToken: await this.jwtService.signAsync(payload, {
         expiresIn: '2h',
