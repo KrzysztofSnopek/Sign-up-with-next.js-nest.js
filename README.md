@@ -103,7 +103,7 @@ Project is created with:
   - Implemented password hashing using bcrypt.
   - Integrated Prisma to store user data in an SQLite database.
 
-  ![User Model](screenshots/user_model.png)
+![database](https://github.com/KrzysztofSnopek/Login-page-recruitment-task/assets/108864848/f49dba35-bb0e-4f68-a14a-b3bc575041af)
 
 ### Nest.js APIs
 
@@ -113,8 +113,6 @@ Project is created with:
   - Integrated Prisma to store user data in an SQLite database.
 
 ![POST login](https://github.com/KrzysztofSnopek/Login-page-recruitment-task/assets/108864848/60120711-368c-400a-81ea-0c09351eebfd)
-![database](https://github.com/KrzysztofSnopek/Login-page-recruitment-task/assets/108864848/f49dba35-bb0e-4f68-a14a-b3bc575041af)
-
 
 ### Login Page
 
