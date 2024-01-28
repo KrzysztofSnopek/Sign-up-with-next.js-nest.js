@@ -1,4 +1,4 @@
-# Login page recuitment task
+# Implementing secure sign up with Next.js and Nest.js
 
 ## Table of content
 * [General info](#general-info)
